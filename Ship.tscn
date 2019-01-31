@@ -12,7 +12,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="player1" type="Sprite" parent="."]
+[node name="player" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

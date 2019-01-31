@@ -7,14 +7,15 @@ var players = []
 func _ready():
 	ship = preload("res://Ship.tscn")
 	get_tree().connect("connected_to_server", self, "_connected_ok")
-
+	
 func on_host_game():
 	var host = NetworkedMultiplayerENet.new()
-	# 4 is the number of maximum clients
-	host.create_server(PORT, 4)
+	# 1 is the number of maximum clients
+	host.create_server(PORT, 1)
 	get_tree().set_network_peer(host)
 	_connected_ok()
-
+	
+	
 func on_join_game(ip):
 	var host = NetworkedMultiplayerENet.new()
 	host.create_client(ip, PORT)
@@ -30,12 +31,23 @@ func _connected_ok():
 remote func register_player(player_id):
 	var p = ship.instance()
 	p.set_network_master(player_id)
+	
 	p.name = str(player_id)
 	get_tree().get_root().add_child(p)
+	
 	# if I'm the server I inform the new connected player about the others
 	if get_tree().get_network_unique_id() == 1:
 		if player_id != 1:
 			for i in players:
 				rpc_id(player_id, "register_player", i)
 				players.append(player_id)
-
+	
+	print_status(player_id)
+				
+func print_status(id): 
+	print(str(id)," ... ", str(players.find(id)))
+	#	#p.get_node("player").texture = load("res://Images/player"+str(i+1)+".png")
+	
+	
+	
+	
