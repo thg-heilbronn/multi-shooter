@@ -5,5 +5,4 @@
 [node name="Main" type="Node2D"]
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
-gravity_scale = 0.0
 
