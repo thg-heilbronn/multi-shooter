@@ -41,12 +41,12 @@ remote func register_player(player_id):
 			for i in players:
 				rpc_id(player_id, "register_player", i)
 				players.append(player_id)
-	
-	print_status(player_id)
 				
-func print_status(id): 
-	print(str(id)," ... ", str(players.find(id)))
-	#	#p.get_node("player").texture = load("res://Images/player"+str(i+1)+".png")
+#	print_status(player_id)
+					
+#remote func print_status(id): 
+#	print(str(id)) #," ... ", str(players.find(id)))
+#	p.get_node("player").texture = load("res://Images/player"+str(i+1)+".png")
 	
 	
 	
