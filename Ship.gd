@@ -45,3 +45,10 @@ func _process(delta):
 		position = slave_position
 		rotation = slave_rotation
 	
+func init(is_slave):
+	if is_slave:
+		#p.get_node("Player").texture = load("res://Images/player"+str(i+1)+".png")
+		$Player.texture = load("res://Images/player2.png")
+		#get_node("Player").texture = load("res://Images/player2.png")
+	else:
+		$Player.texture = load("res://Images/player1.png")
