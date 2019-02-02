@@ -1,8 +1,5 @@
 extends RigidBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var speed = 200
 var rotation_speed = 80
 var max_speed = 25
@@ -40,6 +37,10 @@ func _process(delta):
 		if Input.is_action_pressed("ui_focus_next"):
 			set_angular_velocity(0)
 			set_linear_velocity(get_linear_velocity()*0)
+			
+		rset_unreliable("slave_position", position)
+		rset_unreliable("slave_rotation", rotation)
+	
 	else:
 		position = slave_position
 		rotation = slave_rotation

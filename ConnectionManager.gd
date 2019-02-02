@@ -36,17 +36,19 @@ remote func register_player(player_id):
 	get_tree().get_root().add_child(p)
 	
 	# if I'm the server I inform the new connected player about the others
+	#if get_tree().is_network_server():
+	
 	if get_tree().get_network_unique_id() == 1:
 		if player_id != 1:
 			for i in players:
 				rpc_id(player_id, "register_player", i)
-				players.append(player_id)
+				print(str(player_id)," ... ",str(i))
+				#p.get_node("player").texture = load("res://Images/player"+str(i+1)+".png")
 				
-#	print_status(player_id)
-					
-#remote func print_status(id): 
-#	print(str(id)) #," ... ", str(players.find(id)))
-#	p.get_node("player").texture = load("res://Images/player"+str(i+1)+".png")
+		players.append(player_id)
+	
+	
+
 	
 	
 	
