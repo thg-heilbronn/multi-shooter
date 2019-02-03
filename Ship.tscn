@@ -7,14 +7,18 @@
 
 
 [node name="Ship" type="RigidBody2D"]
+position = Vector2( -0.790894, -1.04228 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Player" type="Sprite" parent="."]
+position = Vector2( -3.29126, 0.984253 )
+scale = Vector2( 0.105263, 0.115942 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.05176e-005, 3.01469 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
